@@ -13,6 +13,7 @@
 # run coverage tests with python -m pytest --cov
 
 import pytest
+import requests
 from app import app, Loan
 
 
@@ -106,3 +107,9 @@ def test_full_loan_calculation(client):
     print(" -- full loan calculation and amortization table integration test")
     for field, value in data.items():
         assert value.encode() in response.data
+
+# Test 404 page
+def test_404_page():
+    url = "https://tmelles-ci-cd.azurewebsites.net/Mike"
+    response = requests.get(url)
+    assert response.status_code == 404
