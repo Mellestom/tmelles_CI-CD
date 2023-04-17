@@ -113,3 +113,9 @@ def test_404_page():
     url = "https://tmelles-ci-cd.azurewebsites.net/Mike"
     response = requests.get(url)
     assert response.status_code == 404
+
+# Test 500 page
+def test_500_page():
+    url = "https://tmelles-ci-cd.azurewebsites.net/Mike"
+    response = requests.get(url)
+    assert response.status_code == 500
